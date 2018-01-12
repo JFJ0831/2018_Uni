@@ -12,10 +12,10 @@ public class FidgetSpinnerArmRunner {
 	 */
 	public void run() {
 		
-		double d1 = 1.0;   // Bei Bedarf aendern.
-		double l1 = 2.0;   // Bei Bedarf aendern.
-		double d2 = 3.0;   // Bei Bedarf aendern.
-		double l2 = 4.0;   // Bei Bedarf aendern.
+		double d1 = 10.0;   // Bei Bedarf aendern.
+		double l1 = 20.0;   // Bei Bedarf aendern.
+		double d2 = 0.0;   // Bei Bedarf aendern.
+		double l2 = 1.0;   // Bei Bedarf aendern.
 		
 		// Erzeugen eines neuen Objekts und speichern der Referenz
 		// in der Variablen arm. Durch Versenden von Botschaften
@@ -24,9 +24,12 @@ public class FidgetSpinnerArmRunner {
 		
 		
 		System.out.println("d1 = " + d1 + ", l1 = " + l1 + ", d2 = " + d2 + ", l2 = " + l2);
-		System.out.println("(a) Gerundete Oberflaeche = " + arm.berechneGerundeteOberflaeche());
+		System.out.println("(a) Gerundete Oberflaeche = " + arm.berechneUngerundeteOberflaeche());
 		System.out.println("(b) Gerundetes Volumen    = " + arm.berechneGerundetesVolumen());
 		System.out.println("(c) Gerundete Masse       = " + arm.berechneGerundeteMasse());
+		System.out.println("(d) Kreisfläche       = " + arm.berechneKreisflaeche(d1));
+		System.out.println(arm.berechneKreisflaeche(d1) + arm.berechneKreisflaeche(d1) + arm.berechneZylinderoberflaeche(d1, l1));
+		System.out.println(arm.berechneKreisflaeche(d1) + arm.berechneKegeloberflaeche(d1));
 	}
 
 	// Ausfuehren dieser Methode in Eclipse durch Rechtsklick auf
