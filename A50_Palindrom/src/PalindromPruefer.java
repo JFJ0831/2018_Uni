@@ -15,20 +15,20 @@ public class PalindromPruefer {
      */
     public boolean istPalindrom(String eingabe) {
     	
-    	if (eingabe == null)
+    	if (eingabe == null)														// Fehler falls die Eingabe null ist.
     		throw new IllegalArgumentException("Argument darf nicht null sein.");
     	
-    	this.eingabe = eingabe.toLowerCase();
+    	this.eingabe = eingabe.toLowerCase();										// Wandelt alle grossen Zeichen in kleine um.
     	String reverse = "";
     	
-    	for (int i = this.eingabe.length() - 1; i >= 0; i--)
-    		if (!Character.isAlphabetic(this.eingabe.charAt(i)))
+    	for (int i = this.eingabe.length() - 1; i >= 0; i--)						// Schleife ueber die Laenge des eingabe-Strings.
+    		if (!Character.isAlphabetic(this.eingabe.charAt(i)))					// Ersetzt alle Zeichen die nicht ""isAlphabetic" sind durch den niedrigsten Wert der Unicode-Tabelle
     			eingabe.replace(this.eingabe.charAt(i), Character.MIN_VALUE);
     	
-    	for (int i = this.eingabe.length() - 1; i >= 0; i--)
-    		reverse += this.eingabe.charAt(i);
+    	for (int i = this.eingabe.length() - 1; i >= 0; i--)						// Schleife ueber die Laenge des eingabe-Strings.
+    		reverse += this.eingabe.charAt(i);										// Haengt die Zeichen des Eingabestrings in umgekehrter Reihenfolge in einem neuen String aneinander.
     	
-    	if (this.eingabe.matches(reverse))
+    	if (this.eingabe.matches(reverse))											// vergleicht eingabe-Sring und reverse-String.
     		return true;
     	else 
     		return false;
@@ -45,10 +45,10 @@ public class PalindromPruefer {
      */
     public boolean istSatzPalindrom(String eingabe) {
     	
-    	if (eingabe == null)
+    	if (eingabe == null)														// Fehler falls die Eingabe null ist.
     		throw new IllegalArgumentException("Argument darf nicht null sein.");
     	
-    	this.eingabe = eingabe.replace(" ", "");
+    	this.eingabe = eingabe.replace(" ", "");									// Im folgenden werden alle gaengigen Satzzeichen entfernt.
     	this.eingabe = this.eingabe.replace(".", "");
     	this.eingabe = this.eingabe.replace(",", "");
     	this.eingabe = this.eingabe.replace(";", "");
@@ -60,8 +60,8 @@ public class PalindromPruefer {
     	this.eingabe = this.eingabe.replace("´", "");
     	this.eingabe = this.eingabe.replace("`", "");
     	
-    	for (int i = this.eingabe.length() - 1; i >= 0; i--)
-    		if (!Character.isAlphabetic(this.eingabe.charAt(i)))
+    	for (int i = this.eingabe.length() - 1; i >= 0; i--)						// Schleife ueber die Laenge des eingabe-Strings.
+    		if (!Character.isAlphabetic(this.eingabe.charAt(i)))					// Ersetzt alle Zeichen die nicht ""isAlphabetic" sind durch den niedrigsten Wert der Unicode-Tabelle.
     			eingabe.replace(this.eingabe.charAt(i), Character.MIN_VALUE);
     	
         return istPalindrom(this.eingabe);
