@@ -2,6 +2,8 @@
  * &Uuml;berpr&uuml;fung der Eigenschaft, ein Palindrom zu sein.
  */
 public class PalindromPruefer {
+	
+	private String eingabe;
 
     /**
      * &Uuml;berpr&uuml;fe, ob die &uuml;bergebene Zeichenkette
@@ -12,8 +14,24 @@ public class PalindromPruefer {
      *         ist, <CODE>false</CODE> sonst.
      */
     public boolean istPalindrom(String eingabe) {
-
-        return false; // Hier Implementierung ergaenzen.
+    	
+    	if (eingabe == null)
+    		throw new IllegalArgumentException("Argument darf nicht null sein.");
+    	
+    	this.eingabe = eingabe.toLowerCase();
+    	String reverse = "";
+    	
+    	for (int i = this.eingabe.length() - 1; i >= 0; i--)
+    		if (!Character.isAlphabetic(this.eingabe.charAt(i)))
+    			eingabe.replace(this.eingabe.charAt(i), Character.MIN_VALUE);
+    	
+    	for (int i = this.eingabe.length() - 1; i >= 0; i--)
+    		reverse += this.eingabe.charAt(i);
+    	
+    	if (this.eingabe.matches(reverse))
+    		return true;
+    	else 
+    		return false;
 
     }
 
@@ -26,8 +44,27 @@ public class PalindromPruefer {
      *         ist, <CODE>false</CODE> sonst.
      */
     public boolean istSatzPalindrom(String eingabe) {
-
-        return false; // Hier Implementierung ergaenzen.
+    	
+    	if (eingabe == null)
+    		throw new IllegalArgumentException("Argument darf nicht null sein.");
+    	
+    	this.eingabe = eingabe.replace(" ", "");
+    	this.eingabe = this.eingabe.replace(".", "");
+    	this.eingabe = this.eingabe.replace(",", "");
+    	this.eingabe = this.eingabe.replace(";", "");
+    	this.eingabe = this.eingabe.replace(":", "");
+    	this.eingabe = this.eingabe.replace("!", "");
+    	this.eingabe = this.eingabe.replace("?", "");
+    	this.eingabe = this.eingabe.replace("-", "");
+    	this.eingabe = this.eingabe.replace("'", "");
+    	this.eingabe = this.eingabe.replace("´", "");
+    	this.eingabe = this.eingabe.replace("`", "");
+    	
+    	for (int i = this.eingabe.length() - 1; i >= 0; i--)
+    		if (!Character.isAlphabetic(this.eingabe.charAt(i)))
+    			eingabe.replace(this.eingabe.charAt(i), Character.MIN_VALUE);
+    	
+        return istPalindrom(this.eingabe);
 
     }
 
