@@ -128,7 +128,7 @@ public class FidgetSpinnerArm {
 	/**
 	 * Approximative Berechung der Oberfl&auml;che eines Kegels f&uuml;r einen gegebenen 
 	 * Durchmesser, der auch der H&ouml;he entspricht.
-	 * Es wird nur die Mantelfläche berechnet, die Grundfläche wird nicht berücksichtigt. 
+	 * Es wird nur die Mantelflï¿½che berechnet, die Grundflï¿½che wird nicht berï¿½cksichtigt. 
 	 * Bei der Berechnung wird als Approximation von &Pi; der Wert 3.14 verwendet.
 	 * @param d Durchmesser des Kegels.
 	 * @return Approximierte Oberfl&auml;che des Kegels.
@@ -138,13 +138,13 @@ public class FidgetSpinnerArm {
 			throw new IllegalArgumentException("Durchmesser darf nicht negativ sein.");
 		}
 
-		return Math.sqrt(Math.pow(d, 2) + Math.pow((d / 2 ), 2)) * APX_PI * (d / 2);
+		return Math.sqrt(Math.pow(d, 2) + Math.pow((d / 2 ), 2))  ;
 	}
 
 	/**
 	 * Approximative Berechung der Oberfl&auml;che eines Zylinders f&uuml;r einen gegebenen 
 	 * Durchmesser und eine gegebene L&auml;nge.
-	 * Es wird nur die Mantelfläche berechnet, die Grund- und Deckfläche werden nicht berücksichtigt.
+	 * Es wird nur die Mantelflï¿½che berechnet, die Grund- und Deckflï¿½che werden nicht berï¿½cksichtigt.
 	 * Bei der Berechnung wird als Approximation von &Pi; der Wert 3.14 verwendet.
 	 * @param d Durchmesser der Zylinders.
 	 * @param l L&auml;nge des Zylinders
@@ -185,7 +185,7 @@ public class FidgetSpinnerArm {
 	 * Bei der Berechnung wird als Approximation von &Pi; der Wert 3.14 verwendet.
 	 * @return Approximierte Masse des Armes.
 	 */
-	static double berechneUngerundeteMasse() {
+	 static double berechneUngerundeteMasse() {
 	    return GOLD_DICHTE * (FidgetSpinnerArm.berechneKegelvolumen(d1)
 	    		+ FidgetSpinnerArm.berechneZylindervolumen(d1, l1)
 	    		+ FidgetSpinnerArm.berechneZylindervolumen(d2, l2));
