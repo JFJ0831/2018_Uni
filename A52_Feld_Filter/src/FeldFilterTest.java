@@ -5,7 +5,7 @@ import org.junit.Test;
 
 public class FeldFilterTest {
 
-//*	
+/*	
 	@Test
 	public void testGetMin() {
 		// Testdaten
@@ -17,7 +17,7 @@ public class FeldFilterTest {
 		assertEquals(1,
 				einFeldFilter.getMin());
 	}	
-//*/
+//*
 
 	@Test
 	public void testGetMax() {
@@ -44,7 +44,7 @@ public class FeldFilterTest {
 		assertArrayEquals(erwartet,
 				einFeldFilter.entferneFeld(beispielfeld, 2));
 	}	
-//*/// NICHT BENOETIGT // NICHT BENOETIGT // NICHT BENOETIGT // NICHT BENOETIGT // NICHT BENOETIGT// NICHT BENOETIGT // NICHT BENOETIGT
+//* // NICHT BENOETIGT // NICHT BENOETIGT // NICHT BENOETIGT // NICHT BENOETIGT // NICHT BENOETIGT// NICHT BENOETIGT // NICHT BENOETIGT
 
 	@Test
 	public void testHaengeFeldAn() {

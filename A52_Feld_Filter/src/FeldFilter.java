@@ -16,7 +16,7 @@ public class FeldFilter {
 	 * Berechnet den minimalen Wert der im gegebenen Feld gespeichert ist.
 	 * @return Minimaler im Feld gespeicherter Wert.
 	 */
-	public int getMin() {
+	private int getMin() {
 		int currentMin = this.feld[0];
 		for (int i = 0; i < this.feld.length; i++) {
 			if (this.feld[i] < currentMin) {							// Falls der Wert des Feldes kleiner als der gespeicherte Wert ist, 
@@ -30,7 +30,7 @@ public class FeldFilter {
 	 * Berechnet den maximalen Wert der im gegebenen Feld gespeichert ist.
 	 * @return Maximaler im Feld gespeicherter Wert.
 	 */
-	public int getMax() {
+	private int getMax() {
 		int currentMax = this.feld[0];
 		for (int i = 0; i < this.feld.length; i++) {
 			if (this.feld[i] > currentMax) {							// Falls der Wert des Feldes groesser als der gespeicherte Wert ist,
@@ -48,7 +48,7 @@ public class FeldFilter {
 	 * @return Feld ohne den genannten Eintrag
 	 */
 /*
-	public int[] entferneFeld(int[] inputFeld, int feldIndex) {
+	private int[] entferneFeld(int[] inputFeld, int feldIndex) {
 		int[] outputFeld = new int[inputFeld.length - 1];
 		
 		if (feldIndex < 0) {
@@ -73,7 +73,7 @@ public class FeldFilter {
 	 * @param eintrag Eintrag der hinzugefuegt werden soll.
 	 * @return Feld mit dem genannten Eintrag.
 	 */
-	public int[] haengeFeldAn(int[] inputFeld, int eintrag) {
+	private int[] haengeFeldAn(int[] inputFeld, int eintrag) {
 		int[] outputFeld = new int[inputFeld.length + 1];
 		
 		for (int i = 0; i < outputFeld.length; i++) {
