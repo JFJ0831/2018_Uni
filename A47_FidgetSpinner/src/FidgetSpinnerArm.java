@@ -5,10 +5,10 @@
  */
 public class FidgetSpinnerArm {
 	// Vereinbare die folgenden Attribute:
-	private static double d1; // Durchmesser des ersten Halbstifts
-	private static double l1; // L&auml;nge des ersten Halbstifts.
-	private static double d2; // Durchmesser des zweiten Halbstifts.
-	private static double l2; // L&auml;nge des zweiten Halbstifts.
+	private  double d1; // Durchmesser des ersten Halbstifts
+	private  double l1; // L&auml;nge des ersten Halbstifts.
+	private  double d2; // Durchmesser des zweiten Halbstifts.
+	private  double l2; // L&auml;nge des zweiten Halbstifts.
 
 	// Die nachfolgende Deklarationen nutzen Konstrukte aus Kapitel 11 und 12
 	// (static/final), um oeffentlich sichtbare (public) Konstanten zu vereinbaren.
@@ -47,13 +47,13 @@ public class FidgetSpinnerArm {
 			throw new IllegalArgumentException("Laenge l2 darf nicht negativ sein.");
 		}
 		// Speichere den Wert des Parameters d1 im Objekt-Attribut d1.
-		FidgetSpinnerArm.d1 = d1;
+		this.d1 = d1;
 		// Speichere den Wert des Parameters l1 im Objekt-Attribut l1.
-		FidgetSpinnerArm.l1 = l1;
+		this.l1 = l1;
 		// Speichere den Wert des Parameters d2 im Objekt-Attribut d2.
-		FidgetSpinnerArm.d2 = d2;
+		this.d2 = d2;
 		// Speichere den Wert des Parameters l2 im Objekt-Attribut l2.
-		FidgetSpinnerArm.l2 = l2;
+		this.l2 = l2;
 	}
 
 	/**
@@ -62,7 +62,7 @@ public class FidgetSpinnerArm {
 	 * @param n Anzahl der erwuenschten Nachkommastellen.
 	 * @return Auf <I>n</I> Nachkommastellen abgerundeter Wert von <I>x</I>.
 	 */
-	static double runde(double x, int n) {
+	 double runde(double x, int n) {
 		if (n < 0) {
 			throw new IllegalArgumentException("Anzahl der Nachkommastellen darf nicht negativ sein.");
 		}
@@ -75,7 +75,7 @@ public class FidgetSpinnerArm {
 	 * @param d Durchmesser der Kreisscheibe.
 	 * @return Approximierte Fl&auml;che der Kreisscheibe.
 	 */
-	static double berechneKreisflaeche(double d) {
+	 double berechneKreisflaeche(double d) {
 		if (d < 0) {
 			throw new IllegalArgumentException("Durchmesser darf nicht negativ sein.");
 		}
@@ -89,11 +89,11 @@ public class FidgetSpinnerArm {
 	 * @param d Durchmesser des Kegels.
 	 * @return Approximiertes Volumen des Kegels.
 	 */
-	static double berechneKegelvolumen(double d) {
+	 double berechneKegelvolumen(double d) {
 		if (d < 0) {
 			throw new IllegalArgumentException("Durchmesser darf nicht negativ sein.");
 		}
-		return FidgetSpinnerArm.berechneKreisflaeche(d) * d * 1 / 3 ;
+		return this.berechneKreisflaeche(d) * d * 1 / 3 ;
 	}
 
 	/**
@@ -104,14 +104,14 @@ public class FidgetSpinnerArm {
 	 * @param l L&auml;nge des Zylinders
 	 * @return Approximiertes Volumen des Zylinders.
 	 */
-	static double berechneZylindervolumen(double d, double l) {
+	 double berechneZylindervolumen(double d, double l) {
 		if (d < 0) {
 			throw new IllegalArgumentException("Durchmesser darf nicht negativ sein.");
 		}
 		if (l < 0) {
 			throw new IllegalArgumentException("Laenge darf nicht negativ sein.");
 		}
-		return FidgetSpinnerArm.berechneKreisflaeche(d) * l;
+		return this.berechneKreisflaeche(d) * l;
 	}
 
 	/**
@@ -119,10 +119,10 @@ public class FidgetSpinnerArm {
 	 * Bei der Berechnung wird als Approximation von &Pi; der Wert 3.14 verwendet.
 	 * @return Approximiertes Volumen des Arms.
 	 */
-	static double berechneUngerundetesVolumen() {
-		return FidgetSpinnerArm.berechneKegelvolumen(d1) 
-				+ FidgetSpinnerArm.berechneZylindervolumen(d1, l1) 
-				+ FidgetSpinnerArm.berechneZylindervolumen(d2, l2);
+	 double berechneUngerundetesVolumen() {
+		return this.berechneKegelvolumen(d1) 
+				+ this.berechneZylindervolumen(d1, l1) 
+				+ this.berechneZylindervolumen(d2, l2);
 	}
 
 	/**
@@ -133,7 +133,7 @@ public class FidgetSpinnerArm {
 	 * @param d Durchmesser des Kegels.
 	 * @return Approximierte Oberfl&auml;che des Kegels.
 	 */
-	static double berechneKegeloberflaeche(double d) {
+	 double berechneKegeloberflaeche(double d) {
 		if (d < 0) {
 			throw new IllegalArgumentException("Durchmesser darf nicht negativ sein.");
 		}
@@ -150,7 +150,7 @@ public class FidgetSpinnerArm {
 	 * @param l L&auml;nge des Zylinders
 	 * @return Approximierte Oberfl&auml;che des Zylinders.
 	 */
-	static double berechneZylinderoberflaeche(double d, double l) {
+	 double berechneZylinderoberflaeche(double d, double l) {
 		if (d < 0) {
 			throw new IllegalArgumentException("Durchmesser darf nicht negativ sein.");
 		}
@@ -166,17 +166,17 @@ public class FidgetSpinnerArm {
 	 * Bei der Berechnung wird als Approximation von &Pi; der Wert 3.14 verwendet.
 	 * @return Approximierte Oberfl&auml;che des Armes.
 	 */
-	static double berechneUngerundeteOberflaeche() {
+	 double berechneUngerundeteOberflaeche() {
 		double x = 0;
 		if (d1 > d2) { 
-			x = FidgetSpinnerArm.berechneKreisflaeche(d1); 
+			x = this.berechneKreisflaeche(d1); 
 		} else {
-			x = 2 * FidgetSpinnerArm.berechneKreisflaeche(d2) - FidgetSpinnerArm.berechneKreisflaeche(d1);
+			x = 2 * this.berechneKreisflaeche(d2) - this.berechneKreisflaeche(d1);
 		}
 		
- 		return FidgetSpinnerArm.berechneKegeloberflaeche(d1)
-				+ FidgetSpinnerArm.berechneZylinderoberflaeche(d1, l1)
-				+ FidgetSpinnerArm.berechneZylinderoberflaeche(d2, l2)
+ 		return this.berechneKegeloberflaeche(d1)
+				+ this.berechneZylinderoberflaeche(d1, l1)
+				+ this.berechneZylinderoberflaeche(d2, l2)
 				+ x;
 	}
 
@@ -185,10 +185,10 @@ public class FidgetSpinnerArm {
 	 * Bei der Berechnung wird als Approximation von &Pi; der Wert 3.14 verwendet.
 	 * @return Approximierte Masse des Armes.
 	 */
-	 static double berechneUngerundeteMasse() {
-	    return GOLD_DICHTE * (FidgetSpinnerArm.berechneKegelvolumen(d1)
-	    		+ FidgetSpinnerArm.berechneZylindervolumen(d1, l1)
-	    		+ FidgetSpinnerArm.berechneZylindervolumen(d2, l2));
+	  double berechneUngerundeteMasse() {
+	    return GOLD_DICHTE * (this.berechneKegelvolumen(d1)
+	    		+ this.berechneZylindervolumen(d1, l1)
+	    		+ this.berechneZylindervolumen(d2, l2));
 	}
 
 	/**
@@ -198,7 +198,7 @@ public class FidgetSpinnerArm {
 	 * @return Approximatives, auf drei Nachkommastellen gerundetes Volumen. 
 	 */
 	public double berechneGerundetesVolumen() {
-		return FidgetSpinnerArm.runde(FidgetSpinnerArm.berechneUngerundetesVolumen(), 3);
+		return this.runde(this.berechneUngerundetesVolumen(), 3);
 	}
 
 	/**
@@ -208,7 +208,7 @@ public class FidgetSpinnerArm {
 	 * @return Approximatives, auf zwei Nachkommastellen gerundetes Volumen. 
 	 */
 	public double berechneGerundeteOberflaeche() {
-		return FidgetSpinnerArm.runde(FidgetSpinnerArm.berechneUngerundeteOberflaeche(), 2);
+		return this.runde(this.berechneUngerundeteOberflaeche(), 2);
 	}
 
 	/**
@@ -218,7 +218,7 @@ public class FidgetSpinnerArm {
 	 * @return Approximative, auf zwei Nachkommastellen gerundete Masse in Gramm. 
 	 */
 	public double berechneGerundeteMasse() {
-		return FidgetSpinnerArm.runde(FidgetSpinnerArm.berechneUngerundeteMasse(), 2);
+		return this.runde(this.berechneUngerundeteMasse(), 2);
 	}
 
 }
