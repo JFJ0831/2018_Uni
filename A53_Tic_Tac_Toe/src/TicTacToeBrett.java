@@ -30,10 +30,10 @@ public class TicTacToeBrett {
 	public TicTacToeBrett(TicTacToeMarke[][] markierungen) {
 		if (seitenLaenge != getSeitenLaenge())
 			throw new IllegalArgumentException("Feld hat nicht die Groesse 3x3");
-		
+
 		for (int i = 0; i < this.getSeitenLaenge(); i++) {
 			for (int j = 0; j < this.getSeitenLaenge(); j++) {
-				this.setMarke(i, j, null);
+				this.setMarke(i, j, markierungen[i][j]);
 			}
 		}
 			
