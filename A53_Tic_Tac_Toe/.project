@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>A53_Tic_Tac_Toe_Vorlagen</name>
-			<type>2</type>
-			<location>D:/Documents/Info WS1718/2018_Uni/A53_Tic_Tac_Toe_Vorlagen</location>
-		</link>
-	</linkedResources>
 </projectDescription>
