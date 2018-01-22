@@ -28,6 +28,7 @@ public class TicTacToeBrett {
 	 * @param markierungen Das Spielfeld.
 	 */
 	public TicTacToeBrett(TicTacToeMarke[][] markierungen) {
+		this.markierungen = markierungen;
 		if (seitenLaenge != getSeitenLaenge())
 			throw new IllegalArgumentException("Feld hat nicht die Groesse 3x3");
 
@@ -44,7 +45,7 @@ public class TicTacToeBrett {
 	 * @return Seitenl&auml;nge des Spielbretts.
 	 */
 	private int getSeitenLaenge() {
-		return TicTacToeBrett.seitenLaenge;
+		return markierungen.length;
 	}
 
 	/**
