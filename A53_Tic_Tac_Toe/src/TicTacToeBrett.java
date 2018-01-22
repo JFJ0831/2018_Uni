@@ -14,6 +14,7 @@ public class TicTacToeBrett {
 	 * Erzeugt ein leeres Tic-Tac-Toe-Brett.
 	 */
 	public TicTacToeBrett() {
+		this.markierungen = new TicTacToeMarke[3][3];
 		for (int i = 0; i < seitenLaenge; i++) {
 			for (int j = 0; j < seitenLaenge; j++) {
 				this.setFeld(i, j, null);
@@ -30,7 +31,7 @@ public class TicTacToeBrett {
 	public TicTacToeBrett(TicTacToeMarke[][] markierungen) {
 		if (seitenLaenge != getSeitenLaenge())
 			throw new IllegalArgumentException("Feld hat nicht die Groesse 3x3");
-
+		this.markierungen = new TicTacToeMarke[3][3];
 		for (int i = 0; i < this.getSeitenLaenge(); i++) {
 			for (int j = 0; j < this.getSeitenLaenge(); j++) {
 				this.setFeld(i, j, markierungen[i][j]);
@@ -44,7 +45,7 @@ public class TicTacToeBrett {
 	 * @return Seitenl&auml;nge des Spielbretts.
 	 */
 	int getSeitenLaenge() {
-		return markierungen.length;
+		return seitenLaenge;		// markierungen.length
 	}
 
 	/**
@@ -81,20 +82,20 @@ public class TicTacToeBrett {
 		TicTacToeMarke marke = null;
 		// Horizontal
 		for (int i = 0; i < seitenLaenge; i++) {
-			if (this.getFeld(i, 0).equals(this.getFeld(i, 1)) && this.getFeld(i, 0).equals(this.getFeld(i, 2)))
+			if (this.getFeld(i, 0) == this.getFeld(i, 1) && this.getFeld(i, 0) == this.getFeld(i, 2))
 				marke = this.getFeld(i, 0);
 		}
 		// Vertikal
 		for (int i = 0; i < seitenLaenge; i++) {
-			if (this.getFeld(0, i).equals(this.getFeld(1, i)) && this.getFeld(0, i).equals(this.getFeld(2, i)))
+			if (this.getFeld(0, i) == this.getFeld(1, i) && this.getFeld(0, i) == this.getFeld(2, i))
 				marke = this.getFeld(0, i);
 		}
 		// Diagonal 1
-		if (this.getFeld(0, 0).equals(this.getFeld(1, 1)) && this.getFeld(0, 0).equals(this.getFeld(2, 2))) {
+		if (this.getFeld(0, 0) == this.getFeld(1, 1) && this.getFeld(0, 0) == this.getFeld(2, 2)) {
 			marke = this.getFeld(0, 0);
 		}
 		// Diagonal 2
-		if (this.getFeld(0, 2).equals(this.getFeld(1, 1)) && this.getFeld(0, 2).equals(this.getFeld(2, 0))) {
+		if (this.getFeld(0, 2) == this.getFeld(1, 1) && this.getFeld(0, 2) == this.getFeld(2, 0)) {
 			marke = this.getFeld(0, 2);
 		}
 		
