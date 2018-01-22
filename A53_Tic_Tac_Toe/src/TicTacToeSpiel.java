@@ -33,10 +33,10 @@ public class TicTacToeSpiel {
      		
     		String sieger = "niemand";
     		
-    		if (brett.pruefeGewinner() == spieler1.getMarke()) {
+    		if (brett.enthaeltGewinnposition() == spieler1.getMarke()) {
     			sieger = spieler1.getName();
     		}
-    		else if (brett.pruefeGewinner() == spieler2.getMarke()) {
+    		else if (brett.enthaeltGewinnposition() == spieler2.getMarke()) {
     			sieger = spieler2.getName();
     		}
     		

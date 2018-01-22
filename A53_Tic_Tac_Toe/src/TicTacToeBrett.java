@@ -16,7 +16,7 @@ public class TicTacToeBrett {
 	public TicTacToeBrett() {
 		for (int i = 0; i < seitenLaenge; i++) {
 			for (int j = 0; j < seitenLaenge; j++) {
-				this.setMarke(i, j, null);
+				this.setFeld(i, j, null);
 			}
 		}
 	}
@@ -33,7 +33,7 @@ public class TicTacToeBrett {
 
 		for (int i = 0; i < this.getSeitenLaenge(); i++) {
 			for (int j = 0; j < this.getSeitenLaenge(); j++) {
-				this.setMarke(i, j, markierungen[i][j]);
+				this.setFeld(i, j, markierungen[i][j]);
 			}
 		}
 			
@@ -43,7 +43,7 @@ public class TicTacToeBrett {
 	 * Gibt die Seitenl&auml;nge des Spielbretts an.
 	 * @return Seitenl&auml;nge des Spielbretts.
 	 */
-	private int getSeitenLaenge() {
+	int getSeitenLaenge() {
 		return markierungen.length;
 	}
 
@@ -53,7 +53,7 @@ public class TicTacToeBrett {
 	 * @param y Zeilen-Koordinate.
 	 * @return Marke des Bretts an der gegebenen Adresse.
 	 */
-	private TicTacToeMarke getFeld(int x, int y) {
+	TicTacToeMarke getFeld(int x, int y) {
 		return this.markierungen[x][y];
 	}
 
@@ -63,7 +63,7 @@ public class TicTacToeBrett {
 	 * @param y Vertikale Koordinate v. o. n. u., beginnend bei 0.
 	 * @param marke Die Markierung, die auf das Feld gesetzt werden soll.
 	 */
-	private void setMarke(int x, int y, TicTacToeMarke marke) {
+	void setFeld(int x, int y, TicTacToeMarke marke) {
 		this.markierungen[x][y] = marke;
 	}
 
@@ -74,7 +74,7 @@ public class TicTacToeBrett {
 	 * zur&uuml;ckgegeben werden. 
 	 * @return Wert des Gewinners. Wenn es keinen gibt, <CODE>null</CODE>.
 	 */
-	TicTacToeMarke pruefeGewinner() {
+	TicTacToeMarke enthaeltGewinnposition() {
 		// Initialisierung Rueckgabe
 		TicTacToeMarke marke = null;
 		// Horizontal
