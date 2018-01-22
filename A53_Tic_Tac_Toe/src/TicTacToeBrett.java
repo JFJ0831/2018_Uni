@@ -64,7 +64,9 @@ public class TicTacToeBrett {
 	 * @param marke Die Markierung, die auf das Feld gesetzt werden soll.
 	 */
 	void setFeld(int x, int y, TicTacToeMarke marke) {
+		if (marke != null) {
 		this.markierungen[x][y] = marke;
+		}
 	}
 
 	/**
