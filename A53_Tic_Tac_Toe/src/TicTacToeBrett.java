@@ -13,7 +13,13 @@ public class TicTacToeBrett {
 	/**
 	 * Erzeugt ein leeres Tic-Tac-Toe-Brett.
 	 */
-	// Hier Programmtext ergaenzen.
+	public TicTacToeBrett() {
+		for (int i = 0; i < seitenLaenge; i++) {
+			for (int j = 0; j < seitenLaenge; j++) {
+				this.setMarke(i, j, null);
+			}
+		}
+	}
 
 	/**
 	 * Erzeugt ein Tic-Tac-Toe-Brett aus einem gegebenen Feld.
@@ -21,13 +27,25 @@ public class TicTacToeBrett {
 	 * eine Fehlermeldung ausgel&ouml;st.
 	 * @param markierungen Das Spielfeld.
 	 */
-	// Hier Programmtext ergaenzen.
-	
+	public TicTacToeBrett(TicTacToeMarke[][] markierungen) {
+		if (seitenLaenge != getSeitenLaenge())
+			throw new IllegalArgumentException("Feld hat nicht die Groesse 3x3");
+		
+		for (int i = 0; i < this.getSeitenLaenge(); i++) {
+			for (int j = 0; j < this.getSeitenLaenge(); j++) {
+				this.setMarke(i, j, null);
+			}
+		}
+			
+	}
+
 	/**
 	 * Gibt die Seitenl&auml;nge des Spielbretts an.
 	 * @return Seitenl&auml;nge des Spielbretts.
 	 */
-	// Hier Programmtext ergaenzen.
+	private int getSeitenLaenge() {
+		return TicTacToeBrett.seitenLaenge;
+	}
 
 	/**
 	 * Getter f&uuml;r die Marke an einer anzugebenden Adresse.
@@ -35,7 +53,9 @@ public class TicTacToeBrett {
 	 * @param y Zeilen-Koordinate.
 	 * @return Marke des Bretts an der gegebenen Adresse.
 	 */
-	// Hier Programmtext ergaenzen.
+	private TicTacToeMarke getFeld(int x, int y) {
+		return this.markierungen[x][y];
+	}
 
 	/**
 	 * Setzt eine Markierung f&uuml;r das &uuml;ber die Koordinaten angegebene Feld.
@@ -43,7 +63,9 @@ public class TicTacToeBrett {
 	 * @param y Vertikale Koordinate v. o. n. u., beginnend bei 0.
 	 * @param marke Die Markierung, die auf das Feld gesetzt werden soll.
 	 */
-	// Hier Programmtext ergaenzen.
+	private void setMarke(int x, int y, TicTacToeMarke marke) {
+		this.markierungen[x][y] = marke;
+	}
 
 	/**
 	 * Testet, ob das Brett eine Gewinnposition enth&auml;lt
@@ -52,12 +74,36 @@ public class TicTacToeBrett {
 	 * zur&uuml;ckgegeben werden. 
 	 * @return Wert des Gewinners. Wenn es keinen gibt, <CODE>null</CODE>.
 	 */
-	// Hier Programmtext ergaenzen.
+	TicTacToeMarke pruefeGewinner() {
+		// Initialisierung Rueckgabe
+		TicTacToeMarke marke = null;
+		// Horizontal
+		for (int i = 0; i < seitenLaenge; i++) {
+			if (this.getFeld(i, 0).equals(this.getFeld(i, 1)) && this.getFeld(i, 0).equals(this.getFeld(i, 2)))
+				marke = this.getFeld(i, 0);
+		}
+		// Vertikal
+		for (int i = 0; i < seitenLaenge; i++) {
+			if (this.getFeld(0, i).equals(this.getFeld(1, i)) && this.getFeld(0, i).equals(this.getFeld(2, i)))
+				marke = this.getFeld(0, i);
+		}
+		// Diagonal 1
+		if (this.getFeld(0, 0).equals(this.getFeld(1, 1)) && this.getFeld(0, 0).equals(this.getFeld(2, 2))) {
+			marke = this.getFeld(0, 0);
+		}
+		// Diagonal 2
+		if (this.getFeld(0, 2).equals(this.getFeld(1, 1)) && this.getFeld(0, 2).equals(this.getFeld(2, 0))) {
+			marke = this.getFeld(0, 2);
+		}
+		
+		return marke;
+	}
+
 
 
 	// Die nachfolgenden Methoden dienen dem Testen bzw. der Fehlersuche
 	// und sind daher schon ausprogrammiert.
-	
+
 	/**
 	 * Pr&uuml;ft, ob zwei Bretter "gleich" sind.
 	 * Dies ist der Fall, wenn die Spielfelder gleich markiert sind.

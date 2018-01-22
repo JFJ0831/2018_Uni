@@ -33,7 +33,12 @@ public class TicTacToeSpiel {
      		
     		String sieger = "niemand";
     		
-    		//  Hier Programmtext ergaenzen.
+    		if (brett.pruefeGewinner() == spieler1.getMarke()) {
+    			sieger = spieler1.getName();
+    		}
+    		else if (brett.pruefeGewinner() == spieler2.getMarke()) {
+    			sieger = spieler2.getName();
+    		}
     		
     		return sieger;
     }
