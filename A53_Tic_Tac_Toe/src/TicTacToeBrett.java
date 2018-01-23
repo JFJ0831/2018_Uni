@@ -80,12 +80,12 @@ public class TicTacToeBrett {
 	TicTacToeMarke enthaeltGewinnposition() {
 		// Initialisierung Rueckgabe
 		TicTacToeMarke marke = null;
-		// Horizontal
+		// Vertikal
 		for (int i = 0; i < seitenLaenge; i++) {
 			if (this.getFeld(i, 0) == this.getFeld(i, 1) && this.getFeld(i, 0) == this.getFeld(i, 2))
 				marke = this.getFeld(i, 0);
 		}
-		// Vertikal
+		// Horizontal
 		for (int i = 0; i < seitenLaenge; i++) {
 			if (this.getFeld(0, i) == this.getFeld(1, i) && this.getFeld(0, i) == this.getFeld(2, i))
 				marke = this.getFeld(0, i);
@@ -145,11 +145,11 @@ public class TicTacToeBrett {
 		String output = "Spielfeld:\n";
 
 		// Iteriere über alle Zeilen
-		for (int y = 0; y < markierungen.length; y++) {
+		for (int x = 0; x < markierungen.length; x++) {
 
 			// Iteriere über alle Spalten
-			for (int x = 0; x < markierungen.length; x++) {
-				TicTacToeMarke m = markierungen[y][x];
+			for (int y = 0; y < markierungen.length; y++) {
+				TicTacToeMarke m = markierungen[x][y];
 				if (m == null) {
 					output += " ";
 				}
