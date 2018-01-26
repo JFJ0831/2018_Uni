@@ -116,14 +116,19 @@ public class FeldFilter {
 	 */
 	public int[] eliminiereMinMax() {
 		int[] ausgabe = {}; // Default-Rueckgabe: Leeres Feld.
-		int min = getMin();
-		int max = getMax();
 		
-		for (int i = 0; i < this.feld.length; i++) {
-			if (this.feld[i] != min && this.feld[i] != max) {			// Sofern der Wert des aktuellen Feldes weder ein Minimum, noch ein Maximum darstellt, 
-				ausgabe = this.haengeFeldAn(ausgabe, this.feld[i]);		// haenge ihn an die Ausgabe an.
+		if (this.feld.length > 0) {
+		
+			int min = getMin();
+			int max = getMax();
+		
+			for (int i = 0; i < this.feld.length; i++) {
+				if (this.feld[i] != min && this.feld[i] != max) {			// Sofern der Wert des aktuellen Feldes weder ein Minimum, noch ein Maximum darstellt, 
+					ausgabe = this.haengeFeldAn(ausgabe, this.feld[i]);		// haenge ihn an die Ausgabe an.
+				}
 			}
 		}
+		else (error "Feld hat Laenge 0");
 
 		return ausgabe;
 	}
