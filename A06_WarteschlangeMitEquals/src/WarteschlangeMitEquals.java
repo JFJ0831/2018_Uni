@@ -6,7 +6,7 @@
 public class WarteschlangeMitEquals<T> implements ADTQueue<T> {
 
     //  Assoziierte Stapel-Objekte zur Speicherung der Daten.
-    private java.util.LinkedList<T> data; 
+    private java.util.LinkedList<T> data;
 
     /**
      *  Default-Konstruktor.
@@ -87,9 +87,72 @@ public class WarteschlangeMitEquals<T> implements ADTQueue<T> {
 	// ignorieren moechten -> @SuppressWarning("unchecked")
 	ADTQueue<Object> w = (ADTQueue<Object>)param;
 
-	boolean resultat = false
+	boolean resultat = false;
+	int i = 0;
+	int k = 0;
+	int m = 0;
+	
+	WarteschlangeMitEquals<T> temp = new WarteschlangeMitEquals<T>();
 
 	    // Hier Programmtext ergaenzen.
+		while (!this.isEmpty() && !w.isEmpty()) {
+			if (this.front() == w.front()) {
+				temp.enqueue(this.front());
+				this.dequeue();
+				w.dequeue();
+				i++;
+			}
+			else {
+				resultat = false;
+				break;
+			}
+		}
+		
+		if (this.isEmpty() && !w.isEmpty()) {
+			resultat = false;
+		}
+		
+		if (!this.isEmpty() && w.isEmpty()) {
+			resultat = false;
+		}
+		
+		if (this.isEmpty() && w.isEmpty()) {
+			resultat = true;
+		}
+		
+		if (!temp.isEmpty()) {
+			while (!this.isEmpty()) {
+				temp.enqueue(this.front());
+				this.dequeue();
+				k++;
+			}
+			if (this.isEmpty()) {
+				for (int j=i; j>0; j--) {
+					this.enqueue(temp.front());
+					temp.enqueue(temp.front());
+					temp.dequeue();
+				}
+				for (int l=k; l>0; l--) {
+					this.enqueue(temp.front());
+					temp.dequeue();
+				}
+			}
+			while (!w.isEmpty()) {
+				temp.enqueue((T) w.front());
+				w.dequeue();
+				m++;
+			}
+			if (w.isEmpty()) {
+				for (int j=i; j>0; j--) {
+					w.enqueue(temp.front());
+					temp.dequeue();
+				}
+				for (int n=m; n>0; n--) {
+					w.enqueue(temp.front());
+					temp.dequeue();
+				}
+			}
+		}
 	    
 	    return resultat;
     }
