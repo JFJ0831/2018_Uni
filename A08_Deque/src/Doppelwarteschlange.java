@@ -8,13 +8,13 @@ public class Doppelwarteschlange<T> implements ADTDeque<T> {
 	}
 
 	@Override
-	public void frontEnqueue() {
+	public void frontEnqueue(T element) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public void backEnqueue() {
+	public void backEnqueue(T element) {
 		// TODO Auto-generated method stub
 		
 	}
