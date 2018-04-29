@@ -1,46 +1,97 @@
-
+/**
+ * Beispielhafte Realisierung des ADT Deque.
+ *
+ * @param <T>
+ */
 public class Doppelwarteschlange<T> implements ADTDeque<T> {
+	
+	 //  Liste zur Speicherung der Daten.
+	private java.util.LinkedList<T> data;
+	
+	/**
+     *  Default-Konstruktor.
+     *  Erzeuge leere Liste zur Speicherung der Elemente.
+     */
+	public Doppelwarteschlange() {
+		data = new java.util.LinkedList<T>();
+	}
 
-	@Override
+	/**
+	 * Überprüft ob die Doppelwarteschlange leer ist.
+	 * @return true, falls Doppelwarteschlange leer ist, sonst false.
+	 */
 	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		return false;
+		return data.isEmpty();
 	}
 
-	@Override
+	/**
+	 * Ein Element wird vorne an die Doppelwarteschlange angefügt.
+	 * @param element Die anzufügende Objektreferenz.
+	 */
 	public void frontEnqueue(T element) {
-		// TODO Auto-generated method stub
-		
+		data.addFirst(element);
 	}
 
-	@Override
+	/**
+	 * Ein Element wird hinten an die Doppelwarteschlange angefügt.
+	 * @param element Die anzufügende Objektreferenz.
+	 */
 	public void backEnqueue(T element) {
-		// TODO Auto-generated method stub
-		
+		data.addLast(element);
 	}
 
-	@Override
+	/**
+	 * Liefert das vorderste Element - so vorhanden - zurück.
+	 * @return Vorderstes Element
+	 * @throws IllegalStateException falls die Warteschlange leer ist.
+	 */
 	public T front() throws IllegalStateException {
-		// TODO Auto-generated method stub
-		return null;
+		if (this.isEmpty()) {
+			throw new IllegalStateException("Doppelwarteschlange ist leer.");
+		}
+		else {
+			return data.getFirst();
+		}
 	}
 
-	@Override
+	/**
+	 * Liefert das hinterste Element - so vorhanden - zurück.
+	 * @return Hinterstes Element
+	 * @throws IllegalStateException falls die Warteschlange leer ist.
+	 */
 	public T back() throws IllegalStateException {
-		// TODO Auto-generated method stub
-		return null;
+		if (this.isEmpty()) {
+			throw new IllegalStateException("Doppelwarteschlange ist leer.");
+		}
+		else {
+			return data.getLast();
+		}
 	}
 
-	@Override
+	/**
+	 * Das erste Element der Doppelwarteschlange - so vorhanden - wird entfernt.
+	 * @throws IllegalStateException falls die Warteschlange leer ist.
+	 */
 	public void frontDequeue() throws IllegalStateException {
-		// TODO Auto-generated method stub
-		
+		if (this.isEmpty()) {
+			throw new IllegalStateException("Doppelwarteschlange ist leer.");
+		}
+		else {
+			data.removeFirst();
+		}
 	}
-
-	@Override
+	
+	/**
+	 * Das letzte Element der Doppelwarteschlange - so vorhanden - wird entfernt.
+	 * @throws IllegalStateException falls die Warteschlange leer ist.
+	 */
 	public void backDequeue() throws IllegalStateException {
-		// TODO Auto-generated method stub
-		
+		if (this.isEmpty()) {
+			throw new IllegalStateException("Doppelwarteschlange ist leer.");
+		}
+		else {
+			data.removeLast();
+		}
 	}
 
 }
