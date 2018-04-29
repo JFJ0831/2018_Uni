@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 /**
  *  Beispielhafte Realisierung des ADT Queue, die um 'equals' erg&auml;nzt wird.
  *  Die Implementierung greift auf die Klasse
@@ -105,7 +107,7 @@ public class WarteschlangeMitEquals<T> implements ADTQueue<T> {
 	     * Die Schleife wird dann abgebrochen.
 	     */
 		while (!this.isEmpty() && !w.isEmpty()) {
-			if (this.front() == w.front()) {
+			if (Objects.equals(this.front(), w.front())) {
 				temp.enqueue(this.front());
 				this.dequeue();
 				w.dequeue();
