@@ -14,13 +14,15 @@ public interface ADTDeque<T> {
 	
 	/**
 	 * Ein Element wird vorne an die Doppelwarteschlange angefügt.
+	 * @param element Die anzufügende Objektreferenz.
 	 */
-	public void frontEnqueue();
-	
+	public void frontEnqueue(T element);
+
 	/**
 	 * Ein Element wird hinten an die Doppelwarteschlange angefügt.
+	 * @param element Die anzufügende Objektreferenz.
 	 */
-	public void backEnqueue();
+	public void backEnqueue(T element);
 	
 	/**
 	 * Liefert das vorderste Element - so vorhanden - zurück.
