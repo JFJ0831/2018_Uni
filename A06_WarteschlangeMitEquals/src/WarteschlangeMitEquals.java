@@ -88,13 +88,22 @@ public class WarteschlangeMitEquals<T> implements ADTQueue<T> {
 	ADTQueue<Object> w = (ADTQueue<Object>)param;
 
 	boolean resultat = false;
-	int i = 0;
-	int k = 0;
-	int m = 0;
 	
+	// Hilfsvariablen zur späteren Rekonstruktion des Ursprungszustands.
+	int i = 0;		// Zählt die identischen Elemente beider Warteschlangen.
+	int k = 0;		// Zählt die Elemente die nur in der durch this referenzierten Warteschlange vorkommen.
+	int m = 0;		// Zählt die Elemente die nur in der durch w referenzierten Warteschlange vorkommen.
+	
+	// Hilfswarteschlange zur Speicherung der identischen Elemente der zu vergleichenden Warteschlangen.
 	WarteschlangeMitEquals<T> temp = new WarteschlangeMitEquals<T>();
 
-	    // Hier Programmtext ergaenzen.
+	    /**
+	     * Schleife die iterativ die vordersten Elemente zweier nicht leerer Warteschlangen vergleicht 
+	     * und diese, falls sie identisch sind, von beiden Warteschlangen entfernt 
+	     * und zur späteren Rekonstruktion der Warteschlangen an eine tempöräre Wartesschlange anhängt.
+	     * Sollten die Elemente nicht identisch sein, so sind die Warteschlangen auch nicht identisch.
+	     * Die Schleife wird dann abgebrochen.
+	     */
 		while (!this.isEmpty() && !w.isEmpty()) {
 			if (this.front() == w.front()) {
 				temp.enqueue(this.front());
@@ -108,19 +117,33 @@ public class WarteschlangeMitEquals<T> implements ADTQueue<T> {
 			}
 		}
 		
+		// Falls die Warteschlangen unterschiedelicher Länge sind, so sind sie nicht identisch.
 		if (this.isEmpty() && !w.isEmpty()) {
 			resultat = false;
 		}
 		
+		// Falls die Warteschlangen unterschiedelicher Länge sind, so sind sie nicht identisch.
 		if (!this.isEmpty() && w.isEmpty()) {
 			resultat = false;
 		}
 		
+		//Falls die Warteschlangen beide leer sind, so sind sie identisch. Dieser Fall kann auch nach Durchlaufen der vorangegangenen Schleife eintreten.
 		if (this.isEmpty() && w.isEmpty()) {
 			resultat = true;
 		}
 		
+		/**
+		 * Ab hier wird der Ursprungzustand der beiden referenzierten Warteschlangen wieder hergestellt, sofern dieser überhaupt verändert wurde.
+		 * Zu erkennen ist dies daran, ob die temp-Warteschlange leer ist, oder nicht. 
+		 */
 		if (!temp.isEmpty()) {
+			
+			/**
+			 * Die folgenden Zeilen stellen den Ursprungszustand der durch this referenzierten Warteschlange her.
+			 * Dazu wird mittels einer Schleife die gesamte durch this referenzierte (Rest-)Warteschlange an die temp-Warteschlange angehängt.
+			 * Wenn this leer ist wird die gesamte in temp gespeicherte Warteschlange wieder an this gehängt, 
+			 * wobei die Elemente, die mit der durch w referenzierten Warteschlange identisch waren, durch erneutes Anhängen an temp weiterhin gespeichert bleiben.
+			 */
 			while (!this.isEmpty()) {
 				temp.enqueue(this.front());
 				this.dequeue();
@@ -137,6 +160,12 @@ public class WarteschlangeMitEquals<T> implements ADTQueue<T> {
 					temp.dequeue();
 				}
 			}
+			
+			/**
+			 * Die folgenden Zeilen stellen den Ursprungszustand der durch w referenzierten Warteschlange her.
+			 * Dazu wird mittels einer Schleife die gesamte durch w referenzierte (Rest-)Warteschlange an die temp-Warteschlange angehängt.
+			 * Wenn this leer ist wird die gesamte in temp gespeicherte Warteschlange wieder an w gehängt.
+			 */
 			while (!w.isEmpty()) {
 				temp.enqueue((T) w.front());
 				w.dequeue();
