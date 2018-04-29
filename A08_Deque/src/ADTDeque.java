@@ -1,6 +1,5 @@
 /**
  * Schnittstelle für Realisierung des ADT Deque.
- * @author Julius Joha
  *
  * @param <T>
  */
