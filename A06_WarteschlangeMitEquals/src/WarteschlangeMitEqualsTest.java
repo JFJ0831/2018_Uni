@@ -8,7 +8,7 @@ import org.junit.Test;
 /** Beispiele zu Assertions in JUnit 5
  * @see https://junit.org/junit5/docs/5.0.1/api/org/junit/jupiter/api/Assertions.html
  */
-public class ExampleTest {
+public class WarteschlangeMitEqualsTest {
 
 	@Test
 	public void testNotNull() {
