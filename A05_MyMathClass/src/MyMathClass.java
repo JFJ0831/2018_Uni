@@ -2,8 +2,6 @@ import java.util.*;
 
 /**
  * Klasse zur Berechnung der Standartabweichung.
- * 
- * @author Bäcker, Joha, Wenning
  */
 public class MyMathClass {
 	public MyMathClass() {
