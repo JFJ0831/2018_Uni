@@ -23,6 +23,7 @@ public class MyMathClassTest {
 		vec.addElement(0);
 		
 		assertThat("Standartabweichung wird nicht korrekt berechnet.", mmc.standardDeviation(vec), is(equalTo(22.677466789745277896181082151853)));
+		assertEquals("Standartabweichung wird nicht korrekt berechnet.", 22.677466, mmc.standardDeviation(vec), 0.000001);
 	}
 
 	/**
