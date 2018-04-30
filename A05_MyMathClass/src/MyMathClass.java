@@ -26,7 +26,7 @@ public class MyMathClass {
 	 */
 	private double calculateMean(Vector<Number> v) {
 		
-		Iterator<Number> i = v.iterator();
+		Iterator<Number> i = v.iterator();			// Objekt zum sequentiellen Durchlaufen eines Objekts (hier Vektor). Erlaubt durch die Methode "next()" den Aufruf des nächsten im Objekt gespeicherten Werts.
 		Double all = 0.0;
 		
 		while (i.hasNext()) {
