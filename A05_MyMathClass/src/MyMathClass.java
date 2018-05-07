@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * Klasse zur Berechnung der Standartabweichung.
  */
-public class MyMathClass {
+public class MyMathClass<T extends Number> {
 	public MyMathClass() {
 		
 	}
