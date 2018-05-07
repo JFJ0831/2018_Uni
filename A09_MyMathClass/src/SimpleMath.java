@@ -19,8 +19,8 @@ public class SimpleMath {
 	 */
 	public static int addEveryKth(int[] input, int k) throws IllegalArgumentException {
 		
-		int sum = 0;
-		int i = 0;
+		int sum = 0;			// Summe der k-ten Elemente.
+		int i = 1;				// Zählt mit, damit klar ist, welches das k-te Element ist.
 		
 		if (k <= 0) {
 			throw new IllegalArgumentException("Schrittweite k ist nicht echt positiv.");
@@ -33,7 +33,7 @@ public class SimpleMath {
 			for (int j=0; j<input.length; j++) {
 				if (i == k) {
 					sum += input[j];
-					i = 0;
+					i = 1;
 				}
 				else {
 					i++;
@@ -52,24 +52,32 @@ public class SimpleMath {
 	 */
 	public static Integer addEveryKth(List<Integer> input, int k) throws IllegalArgumentException {
 		
-		Integer sum = 0;
-		int j = k;
+		Integer sum = 0;		// Summe der k-ten Elemente.
+		int l = 1;				// Zählt mit, damit klar ist, welches das k-te Element ist.
+		
+		if (input == null) {
+			return sum;
+		}
+		
 		Iterator<Integer> i = input.iterator();
 		
 		if (k <= 0) {
 			throw new IllegalArgumentException("Schrittweite k ist nicht echt positiv.");
 		}
 		
-		if ((input == null) || (input.isEmpty())) {
+		if (input.isEmpty()) {
 			return sum;
 		}
 		else {
 			while (i.hasNext()) {
-				if (j == k) {
+				if (l == k) {
 					sum += i.next();
-					j = 0;
+					l = 1;
 				}
-				j++;
+				else {
+					l++;
+					i.next();
+				}
 			}
 			return sum;
 		}
