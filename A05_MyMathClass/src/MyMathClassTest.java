@@ -13,7 +13,7 @@ public class MyMathClassTest {
 	@Test
 	public void testStandardDeviation() {
 		
-		MyMathClass mmc = new MyMathClass();
+		MyMathClass<Number> mmc = new MyMathClass<Number>();
 		Vector<Number> vec = new Vector<Number>();
 		
 		vec.addElement(9);		
@@ -33,7 +33,7 @@ public class MyMathClassTest {
 	@Test
 	public void testCalculateMean() {
 		
-		MyMathClass mmc = new MyMathClass();
+		MyMathClass<Number> mmc = new MyMathClass<Number>();
 		Vector<Number> vec = new Vector<Number>();
 		
 		vec.addElement(9);
@@ -50,7 +50,7 @@ public class MyMathClassTest {
 	@Test
 	public void testCalculateVariance() {
 		
-		MyMathClass mmc = new MyMathClass();
+		MyMathClass<Number> mmc = new MyMathClass<Number>();
 		Vector<Number> vec = new Vector<Number>();
 		
 		vec.addElement(9);
@@ -67,7 +67,7 @@ public class MyMathClassTest {
 	@Test
 	public void testRemoveNullElements() {
 		
-		MyMathClass mmc = new MyMathClass();
+		MyMathClass<Number> mmc = new MyMathClass<Number>();
 		Vector<Number> vec1 = new Vector<Number>();
 		Vector<Number> vec2 = new Vector<Number>();
 		
