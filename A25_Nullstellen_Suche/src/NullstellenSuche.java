@@ -21,7 +21,7 @@ public class NullstellenSuche {
 	public static double findeNullstelle(Function<Double, Double> function, 
 			double untereGrenze, double obereGrenze, double epsilon) {
 
-		double mitte = 0.0; // Approximierte Nullstelle
+		double mitte = findeIntervallmitte(untereGrenze, obereGrenze); // Approximierte Nullstelle
 		double halfepsilon = epsilon / 2;
 		double lowerBound = untereGrenze;
 		double upperBound = obereGrenze;
