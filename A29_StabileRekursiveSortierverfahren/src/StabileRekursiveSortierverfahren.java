@@ -12,7 +12,7 @@ public class StabileRekursiveSortierverfahren {
     	insertionsort(a, a.length);
     }    
     
-    static public <T extends Comparable<T>> void insertionsort(T[] a, int l) {
+    static private <T extends Comparable<T>> void insertionsort(T[] a, int l) {
     	
     	if (l <= 1) {
     		return;
