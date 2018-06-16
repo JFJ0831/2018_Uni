@@ -15,15 +15,13 @@ public class StabileRekursiveSortierverfahren {
     	insertionsort(a, a.length);
     }    
     
-    static private <T extends Comparable<T>> void insertionsort(T[] a, int l) {
+    static private <T extends Comparable<T>> void insertionsort(T[] a, int end) {
     	
-    	if (l <= 1) {
-    		return;
-    	}
+    	if (end <= 1) { return; }
     	
-    	insertionsort(a, l - 1);
+    	insertionsort(a, end - 1);
 
-    	for (int i = l-1; ((i >= 1) && (a[i].compareTo(a[i-1]) < 0)); i--) {
+    	for (int i = end-1; ((i >= 1) && (a[i].compareTo(a[i-1]) < 0)); i--) {
     		swapStable(a, i-1, i);
     	}
       }    
@@ -34,8 +32,28 @@ public class StabileRekursiveSortierverfahren {
      *  @param a Zu sortierendes Feld.
      */
     static public <T extends Comparable<T>> void selectionsort(T[] a) {
-	  // Programmtext hier ergaenzen.
-    }    
+    	if ((a == null) || (a.length == 0)) {
+    		throw new IllegalArgumentException("Leeres Feld kann nich sortiert werden.");
+    	}
+    	selectionsort(a, 0);
+    }
+    
+    static private <T extends Comparable<T>> void selectionsort(T[] a, int start) {
+    	
+    	if (start == a.length - 1) { return; }
+    	
+    	int minIndex = start;
+    	
+    	for (int i = start; i <= a.length-1; i++) {
+    		if ((a[i].compareTo(a[minIndex])) < 0) {
+    			minIndex = i;
+    		}
+    	}
+    	
+    	swapStable(a, start, minIndex);
+    	
+    	selectionsort(a, start + 1);
+    }
 	
 	/**
 	 *  Vertausche in einem gegebenen Feld die Eintraege an
