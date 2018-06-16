@@ -17,7 +17,7 @@ public class StabileRekursiveSortierverfahren {
     
     /**
      * Methode, welche die bestehende insertionsort-Methode um einen weiteren Parameter erweitert 
-     * und somit eine rekursive insertionsort-Methode ermöglicht. 
+     * und somit eine rekursive insertionsort-Methode ermoeglicht. 
      * @param a Zu sortierendes Feld.
      * @param end Index bis zu welchem in diesem Methodenaufruf das Feld sortiert werden soll.  
      */
@@ -46,7 +46,7 @@ public class StabileRekursiveSortierverfahren {
     
     /**
      * Methode, welche die bestehende selectionsort-Methode um einen weiteren Parameter erweitert 
-     * und somit eine rekursive selectionsort-Methode ermöglicht.
+     * und somit eine rekursive selectionsort-Methode ermoeglicht.
      * @param a Zu sortierendes Feld.
      * @param start Index des Beginns des Feldteils, welcher nach dem niedrigsten Element durchsucht werden muss und noch nicht sortiert ist.
      */
