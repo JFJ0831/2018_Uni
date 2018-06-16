@@ -13,7 +13,7 @@ class StabileRekursiveSortierverfahrenTest {
 	Integer[] testfeld3 = {0, 1, 2, 3, 4};
 	Integer[] testfeld4 = {4, 3, 2, 1, 0};
 	Integer[] testfeld5 = {9, 3, 6, 7, 1, 8, 2, 5};
-	Integer[] testfeld6 = {2, 6, 0, 5, 5, 6, 1};
+	Integer[] testfeld6 = {5, 6, 0, 5, 5, 6, 1};
 	Integer[] testfeld7 = {0, -1, 2, -3, -2};
 	
 	//Integer[] checkfeld0 = null;
@@ -22,7 +22,7 @@ class StabileRekursiveSortierverfahrenTest {
 	Integer[] checkfeld3 = {0, 1, 2, 3, 4};
 	Integer[] checkfeld4 = {0, 1, 2, 3, 4};
 	Integer[] checkfeld5 = {1, 2, 3, 5, 6, 7, 8, 9};
-	Integer[] checkfeld6 = {0, 1, 2, 5, 5, 6, 6};
+	Integer[] checkfeld6 = {0, 1, 5, 5, 5, 6, 6};
 	Integer[] checkfeld7 = {-3, -2, -1, 0, 2};
 
 	@Test
