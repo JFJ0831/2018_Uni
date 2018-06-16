@@ -9,6 +9,9 @@ public class StabileRekursiveSortierverfahren {
     *  @param a Zu sortierendes Feld.
      */
     static public <T extends Comparable<T>> void insertionsort(T[] a) {
+    	if ((a == null) || (a.length == 0)) {
+    		throw new IllegalArgumentException("Leeres Feld kann nich sortiert werden.");
+    	}
     	insertionsort(a, a.length);
     }    
     
@@ -19,17 +22,10 @@ public class StabileRekursiveSortierverfahren {
     	}
     	
     	insertionsort(a, l - 1);
-    	/*
-    	int i = l;
-    	while (a[i].compareTo(a[i-1]) <= 0) {
-    		swapStable(a, i, i-1);
-    		i--;
+
+    	for (int i = l-1; ((i >= 1) && (a[i].compareTo(a[i-1]) < 0)); i--) {
+    		swapStable(a, i-1, i);
     	}
-    	*/
-    	for (int i = l; (a[i].compareTo(a[i-1]) > 0); i--) {
-    		swapStable(a, i, i-1);
-    	}
-    	// Programmtext hier ergaenzen.
       }    
 	
     /**
