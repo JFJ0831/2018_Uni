@@ -1,6 +1,4 @@
 import java.util.Vector;
-import Jama.Matrix;
-import Jama.EigenvalueDecomposition;
 
 /**
  *  Sammlung verschiedener Graphalgorithmen.
